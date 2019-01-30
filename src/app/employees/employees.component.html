@@ -1,0 +1,11 @@
+<mat-card *ngFor="let employee of employees">
+  <div>
+    {{ employee.employee.name.lastName }}, {{ employee.employee.name.firstName }}
+  </div>  
+  <div>
+    Dependents: {{ employee.employee.dependents.length }}
+  </div>
+  <div>
+    Annual Salary: {{ employee.annualSalary | currency:'$' }}
+  </div>  
+</mat-card>
