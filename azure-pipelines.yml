@@ -22,7 +22,6 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-steps:
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'dist'
