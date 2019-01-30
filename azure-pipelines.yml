@@ -22,12 +22,8 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-- task: CopyFiles@2
+steps:
+- task: PublishPipelineArtifact@0
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/dist'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: dist
+    artifactName: 'dist'
+    targetPath: '$(System.DefaultWorkingDirectory)/dist'
