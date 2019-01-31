@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { SalaryComputationsService } from '../salary-computations.service';
-import { Employee } from '../employee';
 import { EmployeeViewModel } from '../employee-view-model';
 
 @Component({
@@ -14,8 +13,7 @@ export class EmployeesComponent implements OnInit {
 
   constructor(
     private employeeService: EmployeeService,
-    private salaryComputationsService: SalaryComputationsService) 
-  { }
+    private salaryComputationsService: SalaryComputationsService) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -23,10 +21,12 @@ export class EmployeesComponent implements OnInit {
 
   getEmployees(): void {
     const employeeModels = this.employeeService.getEmployees();
-    
+
     this.employees = employeeModels.map(model => {
-       return { employee: model, annualSalary: this.salaryComputationsService.getAnnualSalaryForEmployee(model.id) };
-    });    
+       return {
+         employee: model,
+         salary: this.salaryComputationsService.getAnnualSalaryForEmployee(model) };
+      });
   }
 
 }

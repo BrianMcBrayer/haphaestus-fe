@@ -1,0 +1,58 @@
+<form #addEditEmployeeForm="ngForm" class="employee-add-edit-form">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Employee
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input matInput
+            placeholder="First Name"
+            type="text"
+            required
+            [(ngModel)]="model.name.firstName"
+            name="employeeFirstName">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input matInput
+            placeholder="Last Name"
+            type="text"
+            required
+            [(ngModel)]="model.name.lastName"
+            name="employeeLastName">
+        </mat-form-field>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Spouse
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-slide-toggle [(ngModel)]="model.isSpouseEnabled" name="isSpouseEnabled">Enabled</mat-slide-toggle>
+      <br>
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput
+          placeholder="First Name"
+          type="text"
+          required
+          [disabled]="!model.isSpouseEnabled"
+          [(ngModel)]="model.spouse.firstName"
+          name="spouseFirstName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput
+          placeholder="Last Name"
+          type="text"
+          required
+          [disabled]="!model.isSpouseEnabled"
+          [(ngModel)]="model.spouse.lastName"
+          name="spouseLastName">
+      </mat-form-field>
+    </mat-expansion-panel>
+
+</form>
+
