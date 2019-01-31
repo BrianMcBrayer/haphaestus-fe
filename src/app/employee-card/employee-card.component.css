@@ -1,0 +1,44 @@
+.employee {
+  display: inline-block;
+  width: 20em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  margin-left: .5em;
+  margin-right: .5em;
+
+}
+
+.employee:hover {
+  background-color: #f1f1f1;
+}
+
+@media only screen and (max-width: 48em) {
+  .employee {
+    display: block;
+    width: auto;
+  }
+}
+
+.dependents {
+  margin-top: .25em;
+}
+
+.salary {
+  margin-top: .25em;
+}
+
+.salary-table {
+  border-spacing: 0;
+  border-width: 0;
+  border-collapse: collapse;
+}
+
+.salary-table td {
+  padding: 0;
+  width: 8em;
+  padding-top: .25em;
+}
+
+.salary-table td:nth-child(2) {
+  text-align: right;
+}

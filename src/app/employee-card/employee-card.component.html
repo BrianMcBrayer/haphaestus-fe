@@ -1,0 +1,24 @@
+<mat-card class="employee" (click)="editEmployee()">
+  <div class="employee-name">
+    <strong>{{ employee.employee.name.lastName }}, {{ employee.employee.name.firstName }}</strong>
+  </div>
+  <div class="dependents">
+    {{ employee.employee.dependents.length }} dependents
+  </div>
+  <div class="salary">
+    <table class="salary-table">
+      <tr>
+        <td>Salary</td>
+        <td>{{ employee.salary.annualGrossSalary | currency }}</td>
+      </tr>
+      <tr>
+        <td>Deduction</td>
+        <td>{{ employee.salary.annualDeduction | currency }}</td>
+      </tr>
+      <tr>
+        <td>Net Salary</td>
+        <td>{{ employee.salary.annualNetSalary | currency }}</td>
+      </tr>
+    </table>
+  </div>
+</mat-card>

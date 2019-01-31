@@ -4,6 +4,6 @@ export class Employee {
     id: string;
     name: PersonName;
     spouse: PersonName;
-    spouseEnabled: boolean;
+    isSpouseEnabled: boolean;
     dependents: PersonName[];
 }
