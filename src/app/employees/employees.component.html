@@ -1,1 +1,22 @@
-<app-employee-card [employee]="employee" class="employee" *ngFor="let employee of employees"></app-employee-card>
+<mat-toolbar>
+  <form>
+    <button mat-button (click)="addEmployee()">
+      <mat-icon>add</mat-icon> Add Employee
+    </button>
+    <mat-form-field appearance="standard">
+      <input
+        matInput
+        placeholder="Filter Employees"
+        type="text"
+        name="employeeFilter"
+        (input)="filterChanged($event.target.value)"
+      />
+    </mat-form-field>
+  </form>
+</mat-toolbar>
+<app-employee-card
+  [employee]="employee"
+  class="employee"
+  *ngFor="let employee of employees"
+  (employeeSelectedForEdit)="onEmployeeSelectedForEdit($event)"
+></app-employee-card>

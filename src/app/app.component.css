@@ -1,0 +1,35 @@
+.application-logo {
+  max-width: 2.5em;
+  max-height: 2.5em;
+}
+
+.application-logo-link {
+  max-width: 2.5em;
+  max-height: 2.5em;
+  margin-right: .25em;
+}
+
+.application-name, .application-greeting, .application-toolbar-user-avatar {
+  color: black;
+}
+
+.application-name {
+  text-decoration: none;
+}
+
+.application-toolbar-user-avatar {
+  margin-left: .25em;
+  font-size: 2em;
+  height: auto;
+  width: auto;
+}
+
+.application-toolbar-span {
+  flex: 1 1 auto;
+}
+
+@media only screen and (max-width: 30em) {
+  .application-greeting {
+    display: none;
+  }
+}

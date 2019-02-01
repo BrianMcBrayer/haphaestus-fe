@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
 import { SalaryInformation } from './salary-information';
-import { PersonName } from './personName';
+import { PersonName } from './person-name';
 
 @Injectable({
   providedIn: 'root'

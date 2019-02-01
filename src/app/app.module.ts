@@ -10,14 +10,20 @@ import { MatDialogModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatSlideToggleModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeCardComponent } from './employee-card/employee-card.component';
 import { AddEditEmployeeComponent } from './add-edit-employee/add-edit-employee.component';
 
+import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 @NgModule({
-  declarations: [AppComponent, EmployeesComponent, EmployeeCardComponent, AddEditEmployeeComponent],
+  declarations: [AppComponent, EmployeesComponent, EmployeeCardComponent, AddEditEmployeeComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -28,7 +34,11 @@ import { AddEditEmployeeComponent } from './add-edit-employee/add-edit-employee.
     MatDialogModule,
     MatInputModule,
     MatSlideToggleModule,
-    MatExpansionModule],
+    MatExpansionModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [AddEditEmployeeComponent]

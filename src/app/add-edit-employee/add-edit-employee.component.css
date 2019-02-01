@@ -1,0 +1,21 @@
+.spouse-toggle {
+  margin-bottom: .25em;
+}
+
+.employee-add-edit-form {
+  width: 40em;
+}
+
+@media only screen and (max-width: 60em) {
+  .employee-add-edit-form {
+    width: auto;
+  }
+}
+
+.title-deduction, .deduction {
+  color: red;
+}
+
+.title-deduction {
+  margin-left: .25em;
+}

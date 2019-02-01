@@ -1,1 +1,18 @@
-<app-employees></app-employees>
+<mat-toolbar color="primary" class="application-toolbar">
+  <mat-toolbar-row>
+    <a routerLink="/employees" routerLinkActive="active" class="application-logo-link">
+      <img
+        src="assets/logo.svg"
+        alt="Haphaestus Fire Logo"
+        class="application-logo"
+      />
+    </a>
+    <a routerLink="/employees" routerLinkActive="active" class="application-name">
+      <strong>Haphaestus</strong>
+    </a>
+    <span class="application-toolbar-span"></span>
+    <span class="application-greeting">Hello, Sam Foxtrot</span>
+    <mat-icon class="application-toolbar-user-avatar">account_box</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

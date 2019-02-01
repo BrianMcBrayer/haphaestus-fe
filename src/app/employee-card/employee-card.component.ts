@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { EmployeeViewModel } from '../employee-view-model';
-import { MatDialog } from '@angular/material';
-import { AddEditEmployeeComponent } from '../add-edit-employee/add-edit-employee.component';
-import { AddEditEmployeeOptions } from '../add-edit-employee/add-edit-employee-options';
+import { Employee } from '../employee';
+import { SalaryComputationsService } from '../salary-computations.service';
 
 @Component({
   selector: 'app-employee-card',
@@ -10,21 +9,28 @@ import { AddEditEmployeeOptions } from '../add-edit-employee/add-edit-employee-o
   styleUrls: ['./employee-card.component.css']
 })
 export class EmployeeCardComponent implements OnInit {
-  @Input() employee: EmployeeViewModel;
+  private _employee: Employee;
+  viewModel: EmployeeViewModel;
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit() {
+  @Input() set employee(value: Employee) {
+    this._employee = value;
+    this.viewModel = {
+      employee: value,
+      salary: this.salaryComputationsService.getAnnualSalaryForEmployee(value)
+    };
+  }
+  get employee(): Employee {
+    return this._employee;
   }
 
-  editEmployee(): void {
-    const dialogRef = this.dialog.open(AddEditEmployeeComponent, {
-      data: <AddEditEmployeeOptions> { employee: this.employee.employee, isAdding: false }
-    });
+  @Output() employeeSelectedForEdit = new EventEmitter<Employee>();
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  constructor(private salaryComputationsService: SalaryComputationsService) {}
+
+  ngOnInit() {  }
+
+  editEmployee(): void {
+    this.employeeSelectedForEdit.emit(this.employee);
   }
 
 }

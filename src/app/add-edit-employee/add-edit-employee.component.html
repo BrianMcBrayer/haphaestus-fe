@@ -1,58 +1,130 @@
-<form #addEditEmployeeForm="ngForm" class="employee-add-edit-form">
-    <mat-expansion-panel>
+<mat-dialog-content>
+  <form #addEditEmployeeForm="ngForm" class="employee-add-edit-form">
+    <mat-expansion-panel expanded="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Employee
+          <span>Employee</span>
+          <span class="title-deduction" *ngIf="model.isSpouseEnabled">
+              (-{{ getDeductionForName(model.name, false) }})
+            </span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-form-field>
-          <mat-label>First Name</mat-label>
-          <input matInput
-            placeholder="First Name"
-            type="text"
-            required
-            [(ngModel)]="model.name.firstName"
-            name="employeeFirstName">
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Last Name</mat-label>
-          <input matInput
-            placeholder="Last Name"
-            type="text"
-            required
-            [(ngModel)]="model.name.lastName"
-            name="employeeLastName">
-        </mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="First Name"
+          type="text"
+          required
+          [(ngModel)]="model.name.firstName"
+          name="employeeFirstName"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Last Name"
+          type="text"
+          required
+          [(ngModel)]="model.name.lastName"
+          name="employeeLastName"
+        />
+      </mat-form-field>
     </mat-expansion-panel>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          Spouse
+          <span>Spouse</span>
+          <span class="title-deduction" *ngIf="model.isSpouseEnabled">
+              (-{{ getDeductionForSpouse() }})
+            </span>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <mat-slide-toggle [(ngModel)]="model.isSpouseEnabled" name="isSpouseEnabled">Enabled</mat-slide-toggle>
-      <br>
+      <mat-slide-toggle
+        class="spouse-toggle"
+        [(ngModel)]="model.isSpouseEnabled"
+        name="isSpouseEnabled"
+      >
+        Enabled
+      </mat-slide-toggle>
+      <br />
       <mat-form-field>
         <mat-label>First Name</mat-label>
-        <input matInput
+        <input
+          matInput
           placeholder="First Name"
           type="text"
           required
           [disabled]="!model.isSpouseEnabled"
           [(ngModel)]="model.spouse.firstName"
-          name="spouseFirstName">
+          name="spouseFirstName"
+        />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Last Name</mat-label>
-        <input matInput
+        <input
+          matInput
           placeholder="Last Name"
           type="text"
           required
           [disabled]="!model.isSpouseEnabled"
           [(ngModel)]="model.spouse.lastName"
-          name="spouseLastName">
+          name="spouseLastName"
+        />
       </mat-form-field>
     </mat-expansion-panel>
-
-</form>
-
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span>Dependents</span>
+          <span class="title-deduction" *ngIf="model.dependents.length > 0">
+              (-{{ getDependentDeductions() }})
+          </span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let dependent of model.dependents; let idx = index">
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input
+            matInput
+            placeholder="First Name"
+            type="text"
+            required
+            [(ngModel)]="model.dependents[idx].firstName"
+            name="dependent{{ idx }}FirstName"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input
+            matInput
+            placeholder="Last Name"
+            type="text"
+            required
+            [(ngModel)]="model.dependents[idx].lastName"
+            name="dependent{{ idx }}LastName"
+          />
+        </mat-form-field>
+        <button mat-button (click)="removeDependent(idx)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <span class="deduction">
+          (-{{ getDeductionForName(model.dependents[idx], true) }})
+        </span>
+      </div>
+      <button mat-button (click)="addDependent()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-expansion-panel>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="model">
+    <mat-icon>done</mat-icon>
+  </button>
+  <button mat-button mat-dialog-close><mat-icon>cancel</mat-icon></button>
+  <span class="title-deduction">
+      (-{{ getTotalDeductions() }})
+  </span>
+</mat-dialog-actions>
