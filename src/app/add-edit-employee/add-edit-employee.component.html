@@ -4,21 +4,24 @@
       <mat-expansion-panel-header>
         <mat-panel-title>
           <span>Employee</span>
-          <span class="title-deduction" *ngIf="model.isSpouseEnabled">
+          <span class="title-deduction">
               (-{{ getDeductionForName(model.name, false) }})
-            </span>
+          </span>
         </mat-panel-title>
       </mat-expansion-panel-header>
       <mat-form-field>
         <mat-label>First Name</mat-label>
         <input
+          cdkFocusInitial
           matInput
           placeholder="First Name"
           type="text"
           required
           [(ngModel)]="model.name.firstName"
           name="employeeFirstName"
+          #employeeFirstName="ngModel"
         />
+        <mat-error *ngIf="employeeFirstName.invalid">First name is required</mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Last Name</mat-label>
@@ -29,7 +32,9 @@
           required
           [(ngModel)]="model.name.lastName"
           name="employeeLastName"
+          #employeeLastName="ngModel"
         />
+        <mat-error *ngIf="employeeFirstName.invalid">Last name is required</mat-error>
       </mat-form-field>
     </mat-expansion-panel>
     <mat-expansion-panel>
@@ -59,7 +64,10 @@
           [disabled]="!model.isSpouseEnabled"
           [(ngModel)]="model.spouse.firstName"
           name="spouseFirstName"
+          appSpouseNameRequiredIfSpouse="model"
+          #spouseFirstName="ngModel"
         />
+        <mat-error *ngIf="spouseFirstName.invalid">First name is required</mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Last Name</mat-label>
@@ -71,7 +79,10 @@
           [disabled]="!model.isSpouseEnabled"
           [(ngModel)]="model.spouse.lastName"
           name="spouseLastName"
+          appSpouseNameRequiredIfSpouse="model"
+          #spouseLastName="ngModel"
         />
+        <mat-error *ngIf="spouseLastName.invalid">Last name is required</mat-error>
       </mat-form-field>
     </mat-expansion-panel>
     <mat-expansion-panel>
@@ -93,7 +104,9 @@
             required
             [(ngModel)]="model.dependents[idx].firstName"
             name="dependent{{ idx }}FirstName"
+            #dependentFirstName="ngModel"
           />
+          <mat-error *ngIf="dependentFirstName.invalid">First name is required</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Last Name</mat-label>
@@ -104,7 +117,9 @@
             required
             [(ngModel)]="model.dependents[idx].lastName"
             name="dependent{{ idx }}LastName"
+            #dependentLasttName="ngModel"
           />
+          <mat-error *ngIf="dependentLasttName.invalid">Last name is required</mat-error>
         </mat-form-field>
         <button mat-button (click)="removeDependent(idx)">
           <mat-icon>delete</mat-icon>
@@ -120,7 +135,7 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="model">
+  <button mat-button (click)="attemptCloseWithChanges()">
     <mat-icon>done</mat-icon>
   </button>
   <button mat-button mat-dialog-close><mat-icon>cancel</mat-icon></button>

@@ -8,8 +8,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Barrows'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -134,8 +134,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Reynolds'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -160,8 +160,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'McLaughlin'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -173,8 +173,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Marvin'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -204,8 +204,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'McCullough'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -299,8 +299,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Reichel'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -342,8 +342,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Muller'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -377,8 +377,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Kertzmann'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -395,8 +395,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Bashirian'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -408,8 +408,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Prohaska'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -438,8 +438,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Cormier'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -515,8 +515,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Walsh'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -533,8 +533,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Connelly'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -546,8 +546,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Hartmann'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -559,8 +559,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Russel'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -572,8 +572,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Crona'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -619,8 +619,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Baumbach'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -653,8 +653,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Stiedemann'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -705,8 +705,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Grant'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -787,8 +787,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Crist'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -813,8 +813,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Schaden'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -826,8 +826,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Rosenbaum'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -839,8 +839,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Lang'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -852,8 +852,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Tillman'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -865,8 +865,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Hettinger'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -878,8 +878,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Kassulke'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -942,8 +942,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Hartmann'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -955,8 +955,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Koch'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1007,8 +1007,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Goodwin'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1020,8 +1020,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Russel'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1042,8 +1042,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Wisozk'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1060,8 +1060,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Kautzer'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1073,8 +1073,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Bartell'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1086,8 +1086,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'VonRueden'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1303,8 +1303,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Bergstrom'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1333,8 +1333,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Sawayn'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1382,8 +1382,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Leffler'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1395,8 +1395,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Collins'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1408,8 +1408,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Berge'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1421,8 +1421,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Mitchell'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1486,8 +1486,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Lemke'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1582,8 +1582,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Daniel'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1604,8 +1604,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Thompson'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1630,8 +1630,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Dickens'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1673,8 +1673,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Leffler'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1798,8 +1798,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Ryan'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: []
@@ -1864,8 +1864,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Schmitt'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
@@ -1894,8 +1894,8 @@ export const EMPLOYEES: Employee[] = [
       lastName: 'Hyatt'
     },
     spouse: {
-      firstName: null,
-      lastName: null
+      firstName: '',
+      lastName: ''
     },
     isSpouseEnabled: false,
     dependents: [
