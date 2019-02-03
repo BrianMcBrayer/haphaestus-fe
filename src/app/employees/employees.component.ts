@@ -4,7 +4,7 @@ import { AddEditEmployeeOptions } from '../add-edit-employee/add-edit-employee-o
 import { AddEditEmployeeComponent } from '../add-edit-employee/add-edit-employee.component';
 import { MatDialog } from '@angular/material';
 import { Employee } from '../employee';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
@@ -61,8 +61,10 @@ export class EmployeesComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe((updatedEmployee) => {
-      this.saveEmployee(updatedEmployee);
+    dialogRef.afterClosed().subscribe((newEmployee) => {
+      if (newEmployee != null) {
+        this.saveEmployee(newEmployee, true);
+      }
     });
   }
 
@@ -76,15 +78,23 @@ export class EmployeesComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe((updatedEmployee) => {
-      this.saveEmployee(updatedEmployee);
+    dialogRef.afterClosed().subscribe((newEmployee) => {
+      if (newEmployee != null) {
+        this.saveEmployee(newEmployee, false);
+      }
     });
   }
 
-  private async saveEmployee(updatedEmployee: Employee): Promise<void> {
-    if (updatedEmployee != null) {
-      await this.employeeService.saveEmployee(updatedEmployee);
+  private async saveEmployee(employee: Employee, isNew: boolean): Promise<void> {
+    const savedEmployee = await this.employeeService.saveEmployee(employee);
+    if (isNew) {
+      this.employees.push(savedEmployee);
+    } else {
+      const existingEmployeeIndex = this.employees.findIndex((e) => e.id === employee.id);
+      this.employees[existingEmployeeIndex] = employee;
     }
+
+    this.employeeService.sortEmployees(this.employees);
   }
 
 }

@@ -13,6 +13,7 @@ export class SalaryComputationsService {
   readonly deductionPerDependent: number = 500;
   readonly deductionPerEmployee: number = 1000;
   readonly deductionPercent: number = 0.10;
+  readonly discountedFirstCharacter: string = 'a';
 
   constructor() { }
 
@@ -54,7 +55,7 @@ export class SalaryComputationsService {
   }
 
   private personNameGetsDiscount(person: PersonName): boolean {
-    return (person.firstName.toLocaleLowerCase().startsWith('a')
-            || person.lastName.toLocaleLowerCase().startsWith('a'));
+    return (person.firstName.toLocaleLowerCase().startsWith(this.discountedFirstCharacter)
+            || person.lastName.toLocaleLowerCase().startsWith(this.discountedFirstCharacter));
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EMPLOYEES } from './mock-employees';
 import { Employee } from './employee';
-import { SalaryComputationsService } from './salary-computations.service';
 
 @Injectable({
   providedIn: 'root'
@@ -30,23 +29,25 @@ export class EmployeeService {
     throw new Error(`Found no employee matching Id ${employeeId}`);
   }
 
-  async saveEmployee(employee: Employee): Promise<void> {
+  async saveEmployee(employee: Employee): Promise<Employee> {
     if (employee.id !== null) { // this is an existing employee
       // for now, just simulate saving this employee
       for (let index = 0; index < EMPLOYEES.length; index++) {
         if (EMPLOYEES[index].id === employee.id) {
-          EMPLOYEES[index] = { ...employee };
-          break;
+          const updatedEmployee = { ...employee };
+          EMPLOYEES[index] = updatedEmployee;
+          return updatedEmployee;
         }
       }
     } else {
       // this is a new employee
       employee.id = Math.round(Math.random() * 1000000000);
       EMPLOYEES.push(employee);
+      return employee;
     }
   }
 
-  private sortEmployees(employees: Employee[]): void {
+  public sortEmployees(employees: Employee[]): void {
     employees.sort((a, b) => a.name.lastName.localeCompare(b.name.lastName));
   }
 }

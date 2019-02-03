@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatSnackBar, MatDialogRef } from '@angular/material';
 import { AddEditEmployeeOptions } from './add-edit-employee-options';
 import { Employee } from '../employee';
 import { PersonName } from '../person-name';
@@ -11,23 +11,20 @@ import { SalaryComputationsService } from '../salary-computations.service';
   styleUrls: ['./add-edit-employee.component.css']
 })
 export class AddEditEmployeeComponent implements OnInit {
-
   model: Employee;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: AddEditEmployeeOptions, private salaryComputations: SalaryComputationsService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: AddEditEmployeeOptions,
+    public dialogRef: MatDialogRef<Employee>,
+    private salaryComputations: SalaryComputationsService,
+    private snackBar: MatSnackBar) {
     this.model = {
       id: data.employee.id,
-      name: {
-        firstName: data.employee.name.firstName,
-        lastName: data.employee.name.lastName
-      },
+      name: new PersonName(data.employee.name.firstName, data.employee.name.lastName),
       isSpouseEnabled: data.employee.isSpouseEnabled,
-      spouse: {
-        firstName: data.employee.spouse.firstName,
-        lastName: data.employee.spouse.lastName
-      },
+      spouse: new PersonName(data.employee.spouse.firstName, data.employee.spouse.lastName),
       dependents: data.employee.dependents.map((dep) => {
-        return <PersonName>{ firstName: dep.firstName, lastName: dep.lastName };
+        return new PersonName(dep.firstName, dep.lastName);
       })
     };
    }
@@ -63,6 +60,37 @@ export class AddEditEmployeeComponent implements OnInit {
     return this.getDeductionForName(this.model.name, false) +
       this.getDeductionForSpouse() +
       this.getDependentDeductions();
+  }
+
+  attemptCloseWithChanges(): void {
+    if (!this.validateModel()) {
+      this.snackBar.open('Please fix the validation errors before saving', '', {
+        duration: 2000
+      });
+
+      return;
+    }
+
+    this.dialogRef.close(this.model);
+  }
+
+  validateModel(): boolean {
+    const employeeIsValid = this.validateName(this.model.name);
+    const spouseIsValid = !this.model.isSpouseEnabled || this.validateName(this.model.spouse);
+    const depedentsAreValid = !this.model.dependents.some(dependent => !this.validateName(dependent));
+
+    return employeeIsValid &&
+      spouseIsValid &&
+      depedentsAreValid;
+  }
+
+  private validateName(name: PersonName): boolean {
+    return this.stringNotNullOrEmpty(name.firstName) &&
+      this.stringNotNullOrEmpty(name.lastName);
+  }
+
+  private stringNotNullOrEmpty(str: string): boolean {
+    return str && str.length > 0;
   }
 
 }
