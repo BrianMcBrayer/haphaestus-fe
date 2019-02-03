@@ -121,14 +121,14 @@
           />
           <mat-error *ngIf="dependentLasttName.invalid">Last name is required</mat-error>
         </mat-form-field>
-        <button mat-button (click)="removeDependent(idx)">
+        <button mat-button type="button" (click)="removeDependent(idx)">
           <mat-icon>delete</mat-icon>
         </button>
         <span class="deduction">
           (-{{ getDeductionForName(model.dependents[idx], true) }})
         </span>
       </div>
-      <button mat-button (click)="addDependent()">
+      <button mat-button type="button" (click)="addDependent()">
         <mat-icon>add</mat-icon>
       </button>
     </mat-expansion-panel>
