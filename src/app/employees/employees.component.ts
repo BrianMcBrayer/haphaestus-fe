@@ -86,15 +86,9 @@ export class EmployeesComponent implements OnInit {
   }
 
   private async saveEmployee(employee: Employee, isNew: boolean): Promise<void> {
-    const savedEmployee = await this.employeeService.saveEmployee(employee);
-    if (isNew) {
-      this.employees.push(savedEmployee);
-    } else {
-      const existingEmployeeIndex = this.employees.findIndex((e) => e.id === employee.id);
-      this.employees[existingEmployeeIndex] = employee;
-    }
+    await this.employeeService.saveEmployee(employee);
 
-    this.employeeService.sortEmployees(this.employees);
+    this.employeeService.getEmployees().then((refreshedEmployees) => this.employees = refreshedEmployees);
   }
 
 }
