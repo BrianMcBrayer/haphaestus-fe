@@ -52,27 +52,23 @@ export class EmployeeService {
 
   async saveEmployee(employee: Employee): Promise<Employee> {
     if (employee.id !== null) { // this is an existing employee
-      // for now, just simulate saving this employee
-      for (let index = 0; index < EMPLOYEES.length; index++) {
-        if (EMPLOYEES[index].id === employee.id) {
-          const updatedEmployee = { ...employee };
-          EMPLOYEES[index] = updatedEmployee;
+      return await this.http.post<Employee>(`${CONFIG.BaseUrl}/UpdateEmployee`, employee)
+        .toPromise()
+        .then(async (data: Employee) => {
+          await this.refreshEmployees();
 
-          // Keep this stuff
-          this.refreshEmployees();
-
-          return updatedEmployee;
-        }
-      }
+          return data;
+        });
     } else {
       // this is a new employee
-      employee.id = Math.round(Math.random() * 1000000000);
-      EMPLOYEES.push(employee);
 
-      // Keep this stuff
-      this.refreshEmployees();
+      return await this.http.post<Employee>(`${CONFIG.BaseUrl}/AddEmployee`, employee)
+        .toPromise()
+        .then(async (data: Employee) => {
+          await this.refreshEmployees();
 
-      return employee;
+          return data;
+        });
     }
   }
 
