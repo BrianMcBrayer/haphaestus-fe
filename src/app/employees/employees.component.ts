@@ -90,8 +90,8 @@ export class EmployeesComponent implements OnInit {
    * Shows the employee associated with employeeId
    * @param employeeId The employee identifier of the employee to show
    */
-  showEmployee(employeeId: number): void {
-    const employee = this.employeeService.getEmployee(employeeId);
+  async showEmployee(employeeId: number): Promise<void> {
+    const employee = await this.employeeService.getEmployee(employeeId);
 
     const dialogRef = this.dialog.open(AddEditEmployeeComponent, {
       data: <AddEditEmployeeOptions>{

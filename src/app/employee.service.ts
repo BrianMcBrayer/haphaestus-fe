@@ -27,6 +27,8 @@ export class EmployeeService {
       .toPromise()
       .then((data: Employee[]) => {
         this.employees = data;
+
+        this.hasFetchedEver = true;
       });
   }
 
@@ -36,8 +38,6 @@ export class EmployeeService {
   async getEmployees(): Promise<Employee[]> {
     if (!this.hasFetchedEver) {
       await this.refreshEmployees();
-
-      this.hasFetchedEver = true;
     }
 
     return this.employees;
@@ -47,7 +47,11 @@ export class EmployeeService {
    * Returns a single employee matching employeeId. Throws an error if no employees match employeeIdentifier.
    * @param employeeId The employee identifier
    */
-  getEmployee(employeeId: number): Employee {
+  async getEmployee(employeeId: number): Promise<Employee> {
+    if (!this.hasFetchedEver) {
+      await this.refreshEmployees();
+    }
+
     const foundEmployees = this.employees.filter((employee) => employee.id === employeeId);
     if (foundEmployees.length === 1) {
       return foundEmployees[0];
