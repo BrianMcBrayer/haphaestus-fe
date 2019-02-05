@@ -3,11 +3,14 @@ import { Employee } from './employee';
 import { SalaryInformation } from './salary-information';
 import { PersonName } from './person-name';
 
+/**
+ * Calculates salary information
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class SalaryComputationsService {
-  // TODO make these numbers configurable
+  // ITERATION make these numbers configurable
   readonly payPeriodsPerYear: number = 26;
   readonly salaryPerPaycheck: number = 2000;
   readonly deductionPerDependent: number = 500;
@@ -17,6 +20,10 @@ export class SalaryComputationsService {
 
   constructor() { }
 
+  /**
+   * Calculates paycheck information for the given employee
+   * @param employee The employee for which to calculate paycheck information
+   */
   getAnnualSalaryForEmployee(employee: Employee): SalaryInformation {
     const annualDeduction = this.getTotalAnnualDeductionForEmployee(employee);
     const annualGrossSalary = this.payPeriodsPerYear * this.salaryPerPaycheck;
@@ -35,6 +42,11 @@ export class SalaryComputationsService {
     };
   }
 
+  /**
+   * Calculates the annual deduction for a person
+   * @param person The PersonName for which to calculate the annual deduction
+   * @param isDependent Boolean flag to indicate whether person is a dependent (affects the deduction amount)
+   */
   getAnnualDeductionForPerson(person: PersonName, isDependent: boolean): number {
     const hasDiscount = this.personNameGetsDiscount(person);
     const rawDeduction = isDependent ? this.deductionPerDependent : this.deductionPerEmployee;

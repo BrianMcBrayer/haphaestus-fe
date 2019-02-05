@@ -3,6 +3,9 @@ import { EmployeeViewModel } from '../employee-view-model';
 import { Employee } from '../employee';
 import { SalaryComputationsService } from '../salary-computations.service';
 
+/**
+ * Displays a single employee
+ */
 @Component({
   selector: 'app-employee-card',
   templateUrl: './employee-card.component.html',
@@ -12,6 +15,9 @@ export class EmployeeCardComponent implements OnInit {
   private _employee: Employee;
   viewModel: EmployeeViewModel;
 
+  /**
+   * Handles setting and getting the employee
+   */
   @Input() set employee(value: Employee) {
     this._employee = value;
     this.viewModel = {
@@ -23,12 +29,18 @@ export class EmployeeCardComponent implements OnInit {
     return this._employee;
   }
 
+  /**
+   * Emits when the employee associated with this instance is selected
+   */
   @Output() employeeSelectedForEdit = new EventEmitter<Employee>();
 
   constructor(private salaryComputationsService: SalaryComputationsService) {}
 
   ngOnInit() {  }
 
+  /**
+   * Notifies that the employee associated with this instance should be editted
+   */
   editEmployee(): void {
     this.employeeSelectedForEdit.emit(this.employee);
   }

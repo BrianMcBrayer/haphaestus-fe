@@ -5,6 +5,9 @@ import { Employee } from '../employee';
 import { PersonName } from '../person-name';
 import { SalaryComputationsService } from '../salary-computations.service';
 
+/**
+ * Handles displaying a single employee for editting
+ */
 @Component({
   selector: 'app-add-edit-employee',
   templateUrl: './add-edit-employee.component.html',

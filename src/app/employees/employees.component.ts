@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material';
 import { Employee } from '../employee';
 import { Router, ActivatedRoute } from '@angular/router';
 
+/**
+ * Displays a full array of employees
+ */
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -23,6 +26,7 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.getEmployees();
 
+    // setTimeout because of an initialization problem in mat-dialog.
     setTimeout(() => {
       this.route.paramMap.subscribe(params => {
         if (params.has('employeeId')) {
@@ -32,6 +36,10 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
+  /**
+   * Handles employee filter changes
+   * @param value Updated filter value
+   */
   filterChanged(value: string): void {
     this.employeeService.getEmployees().then((employees) => this.employees = employees.filter((employee) => {
       const matcher = new RegExp(value, 'i');
@@ -39,11 +47,18 @@ export class EmployeesComponent implements OnInit {
     }));
   }
 
+  /**
+   * Reloads employees
+   */
   getEmployees(): void {
     this.employeeService.getEmployees()
       .then((employees) => this.employees = employees);
   }
 
+  /**
+   * Handles when an employee is selected for editing
+   * @param employee The selected employee
+   */
   onEmployeeSelectedForEdit(employee: Employee): void {
     const existingId = +this.route.snapshot.paramMap.get('employeeId');
     if (existingId !== employee.id) {
@@ -53,6 +68,9 @@ export class EmployeesComponent implements OnInit {
     }
   }
 
+  /**
+   * Begins the process of adding a new employee
+   */
   addEmployee(): void {
     const dialogRef = this.dialog.open(AddEditEmployeeComponent, {
       data: <AddEditEmployeeOptions>{
@@ -68,6 +86,10 @@ export class EmployeesComponent implements OnInit {
     });
   }
 
+  /**
+   * Shows the employee associated with employeeId
+   * @param employeeId The employee identifier of the employee to show
+   */
   showEmployee(employeeId: number): void {
     const employee = this.employeeService.getEmployee(employeeId);
 
