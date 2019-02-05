@@ -64,7 +64,7 @@ export class AddEditEmployeeComponent implements OnInit {
 
   attemptCloseWithChanges(): void {
     if (!this.validateModel()) {
-      this.snackBar.open('Please fix the validation errors before saving', '', {
+      this.snackBar.open('Please fill in all required names before attempting to save', '', {
         duration: 2000
       });
 

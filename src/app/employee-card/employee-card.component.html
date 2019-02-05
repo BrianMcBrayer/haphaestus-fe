@@ -3,7 +3,7 @@
     <strong>{{ viewModel.employee.name.lastName }}, {{ viewModel.employee.name.firstName }}</strong>
   </div>
   <div class="dependents">
-    {{ viewModel.employee.dependents.length }} dependents
+    {{ viewModel.employee.dependents.length + (viewModel.employee.isSpouseEnabled ? 1 : 0) }} dependents
   </div>
   <div class="salary">
     <table class="salary-table">

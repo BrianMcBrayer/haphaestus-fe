@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { EMPLOYEES } from './mock-employees';
 import { Employee } from './employee';
 import { HttpClient } from '@angular/common/http';
 import CONFIG from './config';
@@ -19,12 +18,6 @@ export class EmployeeService {
       .then((data: Employee[]) => {
         this.employees = data;
       });
-
-    // const employees = [...EMPLOYEES];
-
-    // this.sortEmployees(employees);
-
-    // this.employees = employees;
   }
 
   async getEmployees(): Promise<Employee[]> {
@@ -70,9 +63,5 @@ export class EmployeeService {
           return data;
         });
     }
-  }
-
-  private sortEmployees(employees: Employee[]): void {
-    employees.sort((a, b) => a.name.lastName.localeCompare(b.name.lastName));
   }
 }
